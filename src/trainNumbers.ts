@@ -1,0 +1,1 @@
+export const userTrainMap: Record<string, string> = {};
