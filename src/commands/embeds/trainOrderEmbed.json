@@ -1,0 +1,32 @@
+{
+  "author": {
+    "name": "Tonnage First, Safety Last",
+    "icon_url": "https://i.imgur.com/j6sG1Zo.png"
+  },
+  "title": "Train Order",
+  "footer": {
+    "text": "Made complete at: {{time}} - By: {{dispatcher}}"
+  },
+  "fields": [
+  {
+    "name": "Train order No.",
+    "value": "{{trainOrder}}",
+    "inline": true
+  },
+  {
+    "name": "Date",
+    "value": "{{date}}",
+    "inline": true
+  },
+  {
+    "name": "To:",
+    "value": "{{to}}",
+    "inline": false
+  },
+  {
+    "name": "-",
+    "value": "{{instructions}}",
+    "inline": false
+  }
+  ]
+}

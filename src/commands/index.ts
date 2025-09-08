@@ -6,6 +6,7 @@ import * as setdispatcher from "./setdispatcher"
 import * as settime from "./settime"
 import * as setdate from "./setdate"
 import * as unclaimall from "./unclaimall"
+import * as generatetrainorder from "./generatetrainorder"
 
 export const commands = {
   ping,
@@ -16,4 +17,5 @@ export const commands = {
   settime,
   setdate,
   unclaimall,
+  generatetrainorder,
 };

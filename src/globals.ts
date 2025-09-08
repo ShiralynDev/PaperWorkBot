@@ -6,5 +6,6 @@ export const globals = {
   // don't touch
   mainDispatcher: "",
   gameDateTime: new Date(),
-  lastSetRealTime: Date.now()
+  lastSetRealTime: Date.now(),
+  currentTrainOrder: 1
 };
