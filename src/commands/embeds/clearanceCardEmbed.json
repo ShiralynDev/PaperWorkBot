@@ -1,0 +1,37 @@
+{
+  "author": {
+    "name": "Tonnage First, Safety Last",
+    "icon_url": "https://i.imgur.com/j6sG1Zo.png"
+  },
+  "title": "Clearance Card",
+  "footer": {
+    "text": "YM: {{userName}} - Dispatch: {{dispatcher}}"
+  },
+  "fields": [
+    {
+      "name": "Station",
+      "value": "{{station}}",
+      "inline": true
+    },
+    {
+      "name": "Date",
+      "value": "{{date}}",
+      "inline": true
+    },
+    {
+      "name": "Conductor and Engineer No:",
+      "value": "{{trainnumber}}",
+      "inline": false
+    },
+    {
+      "name": "I have the following orders for your train:",
+      "value": "{{ordernumber}}",
+      "inline": false
+    },
+    {
+      "name": "Form \"19\" numbers O.K. at:",
+      "value": "{{time}}",
+      "inline": false
+    }
+  ]
+}

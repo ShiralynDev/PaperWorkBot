@@ -1,3 +1,4 @@
+/*
 import { PDFDocument } from 'pdf-lib';
 import { execSync } from "child_process";
 import sharp from "sharp";
@@ -39,3 +40,4 @@ export async function pdfToPng(pdfPath: string, outputPrefix: string) { // add p
     .extract({ left: 0, top: 0, width: 1240, height: 700 })
     .toFile(`${outputPrefix}.png`);
 }
+*/
