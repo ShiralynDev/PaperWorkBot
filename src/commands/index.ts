@@ -5,6 +5,7 @@ import * as generateclearancecard from "./generateclearancecard"
 import * as setdispatcher from "./setdispatcher"
 import * as settime from "./settime"
 import * as setdate from "./setdate"
+import * as unclaimall from "./unclaimall"
 
 export const commands = {
   ping,
@@ -14,4 +15,5 @@ export const commands = {
   setdispatcher,
   settime,
   setdate,
+  unclaimall,
 };
