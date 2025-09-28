@@ -33,7 +33,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     .replace("{{trainOrder}}", globals.currentTrainOrder)
     .replace("{{date}}", date)
     .replace("{{to}}", toText)
-    .replace("{{instructions}}", instructionsText);
+    .replace("{{instructions}}", instructionsText.split(";").join("\n"));
   });
   globals.currentTrainOrder++;
 
