@@ -1,3 +1,5 @@
 .env
 node_modules
 output.pdf
+src/ClearanceCard.pdf
+index.js
