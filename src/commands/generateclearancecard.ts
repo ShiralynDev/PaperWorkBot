@@ -34,6 +34,11 @@ export const data = new SlashCommandBuilder()
       .setRequired(false));
 
 export async function execute(interaction: ChatInputCommandInteraction) {
+  const member = interaction.member as GuildMember;
+
+  if (!member?.roles.cache.has(globals.roleIDForYM)) 
+    return interaction.reply({content: `You don't have permissions to do this`, ephemeral: true});
+
   const userName = interaction.user.displayName;
 
   const station = interaction.options.getString("station");

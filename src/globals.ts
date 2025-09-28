@@ -2,6 +2,7 @@ export const globals = {
   // set to stuff
   roleIDForDispatchSettings: "1414225202690265279",
   roleIDForOfficer: "1414225202690265279",
+  roleIDForYM: "1414225202690265279",
 
   // don't touch
   mainDispatcher: "",

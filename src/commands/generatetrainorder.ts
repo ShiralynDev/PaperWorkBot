@@ -18,6 +18,11 @@ export const data = new SlashCommandBuilder()
       .setRequired(true))
 
 export async function execute(interaction: ChatInputCommandInteraction) {
+  const member = interaction.member as GuildMember;
+
+  if (!member?.roles.cache.has(globals.roleIDForDispatchSettings)) 
+    return interaction.reply({content: `You don't have permissions to do this`, ephemeral: true});
+
   const toText = interaction.options.getString("totext");
   const instructionsText = interaction.options.getString("instructionstext");
   const date = `${globals.gameDateTime.toLocaleString("en-US", { month: "short" })}. ${globals.gameDateTime.getDate()}, ${globals.gameDateTime.getFullYear()}`;
