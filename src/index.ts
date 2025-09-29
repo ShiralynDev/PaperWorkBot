@@ -10,7 +10,7 @@ const client = new Client({
 
 client.once("clientReady", async () => {
     console.log("Bot ready!");
-    deployCommands({ guildId: "1414186376810991648" });
+    // deployCommands({ guildId: "1414186376810991648" }); // For quick refreshing slash commands
 });
 
 client.on("guildCreate", async (guild) => {
