@@ -1,7 +1,7 @@
 import { ChatInputCommandInteraction, SlashCommandBuilder } from "discord.js";
 import trainOrderEmbed from "./embeds/trainOrderEmbed.json"; 
 import { EmbedBuilder } from "discord.js";
-import { globals } from "../globals"
+import { globals, trainOrders } from "../globals"
 
 export const data = new SlashCommandBuilder()
   .setName("generatetrainorder")
@@ -40,7 +40,6 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     .replace("{{to}}", toText)
     .replace("{{instructions}}", instructionsText.split(";").join("\n"));
   });
-  globals.currentTrainOrder++;
 
   embedJson.footer.text = embedJson.footer.text
     .replace("{{time}}", time)
@@ -49,4 +48,8 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   const embed = new EmbedBuilder(embedJson);
 
   await interaction.reply({ embeds: [embed] });
+  const orderMsg = await interaction.fetchReply();
+  trainOrders[globals.currentTrainOrder] = orderMsg.id;
+
+  globals.currentTrainOrder++;
 }

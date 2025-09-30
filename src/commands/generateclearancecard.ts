@@ -2,7 +2,7 @@ import { ChatInputCommandInteraction, SlashCommandBuilder } from "discord.js";
 import { userTrainMap } from "../trainNumbers";
 import clearanceCardEmbed from "./embeds/clearanceCardEmbed.json"; 
 import { EmbedBuilder } from "discord.js";
-import { globals } from "../globals"
+import { globals, trainOrders } from "../globals"
 
 export const data = new SlashCommandBuilder()
   .setName("generateclearancecard")
@@ -70,5 +70,15 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
   const embed = new EmbedBuilder(embedJson);
 
-  await interaction.reply({ content: mention, embeds: [embed] });
+  if (typeof parseInt(ordernumber) == "number" && trainOrders[parseInt(ordernumber)] && interaction.channel) {
+    try {
+      const msg = await interaction.channel.messages.fetch(trainOrders[parseInt(ordernumber)]);
+      await msg.reply({ content: mention, embeds: [embed] });
+    } catch (err) {
+      console.error(`Failed to fetch order message:`, err);
+      await interaction.reply({ content: mention, embeds: [embed] });
+    }
+  } else {
+    await interaction.reply({ content: mention, embeds: [embed] });
+  }
 }

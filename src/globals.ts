@@ -11,3 +11,5 @@ export const globals = {
   lastSetRealTime: Date.now(),
   currentTrainOrder: 1
 };
+
+export const trainOrders: Record<number, string> = {};

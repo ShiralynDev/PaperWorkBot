@@ -1,1 +1,1 @@
-export const userTrainMap: Record<string, string> = {};
+export const userTrainMap: Record<string, string> = {}; // move to globals
