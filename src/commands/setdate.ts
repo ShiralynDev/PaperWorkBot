@@ -26,7 +26,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   const day = interaction.options.getString("day");
   const member = interaction.member as GuildMember;
 
-  if (!member?.roles.cache.has(globals.roleIDForOfficer)) 
+  if (!member?.roles.cache.has(globals.roleIDForDispatchSettings)) 
     return interaction.reply({content: `You don't have permissions to set this`, ephemeral: true});
 
   if (typeof year !== "string" || typeof month !== "string" || typeof day !== "string")
