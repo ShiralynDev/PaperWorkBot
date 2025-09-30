@@ -74,6 +74,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     try {
       const msg = await interaction.channel.messages.fetch(trainOrders[parseInt(ordernumber)]);
       await msg.reply({ content: mention, embeds: [embed] });
+      await interaction.reply({ content: "Replied to existing order", ephemeral: true });
     } catch (err) {
       console.error(`Failed to fetch order message:`, err);
       await interaction.reply({ content: mention, embeds: [embed] });
