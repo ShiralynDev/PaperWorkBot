@@ -29,6 +29,15 @@ client.on("interactionCreate", async (interaction) => {
 
 client.login(config.DISCORD_TOKEN);
 
+client.on("messageCreate", message => {
+    if (message.channelId == globals.channelID && message.author.bot == false) {
+        async function clear() {
+            message.delete();
+        }
+        clear();
+    }
+});
+
 setInterval(() => {
   const now = Date.now();
   const elapsedMs = now - globals.lastSetRealTime;
