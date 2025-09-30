@@ -7,6 +7,7 @@ import * as settime from "./settime"
 import * as setdate from "./setdate"
 import * as unclaimall from "./unclaimall"
 import * as generatetrainorder from "./generatetrainorder"
+import * as clearmessages from "./clearmessages"
 
 export const commands = {
   ping,
@@ -18,4 +19,5 @@ export const commands = {
   setdate,
   unclaimall,
   generatetrainorder,
+  clearmessages,
 };
