@@ -35,7 +35,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!parseInt(year) || !parseInt(month) || !parseInt(day))
     return interaction.reply({content: "Something failed :(", ephemeral: true});
 
-  globals.gameDateTime.setFullYear(parseInt(year), parseInt(month), parseInt(day));
+  globals.gameDateTime.setFullYear(parseInt(year), parseInt(month) - 1, parseInt(day));
 
-  return interaction.reply({content: `Date is now set to: ${globals.gameDateTime.getFullYear()}-${globals.gameDateTime.getMonth()}-${globals.gameDateTime.getDate()}!`});
+  return interaction.reply({content: `Date is now set to: ${globals.gameDateTime.getFullYear()}-${globals.gameDateTime.getMonth() + 1}-${globals.gameDateTime.getDate()}!`});
 }
