@@ -41,7 +41,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
   const userName = interaction.user.displayName;
 
-  const station = interaction.options.getString("station");
+  let station = interaction.options.getString("station");
   const trainnumber = interaction.options.getString("trainnumber");
   const ordernumber = interaction.options.getString("ordernumber");
   const date = `${globals.gameDateTime.toLocaleString("en-US", { month: "short" })}. ${globals.gameDateTime.getDate()}, ${globals.gameDateTime.getFullYear()}`;
@@ -50,6 +50,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!station || !trainnumber || !ordernumber) {
     return interaction.reply({ content: "Something failed :(", ephemeral: true });
   }
+  station = station[0].toUpperCase() + station.slice(1)
 
   const userIdsToPing = Object.keys(userTrainMap).filter(userId => userTrainMap[userId] === trainnumber);
   const mention = userIdsToPing.length > 0 ? userIdsToPing.map(id => `<@${id}>`).join(" ") : "";
