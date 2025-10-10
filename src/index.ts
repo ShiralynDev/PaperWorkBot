@@ -30,9 +30,15 @@ client.on("interactionCreate", async (interaction) => {
 client.login(config.DISCORD_TOKEN);
 
 client.on("messageCreate", message => {
+    if (!globals.removeNonBotMessages) return;
+    
     if (message.channelId == globals.channelID && message.author.bot == false) {
         async function clear() {
+            try {
             message.delete();
+            } catch(err) {
+                console.log(err)
+            }
         }
         clear();
     }
