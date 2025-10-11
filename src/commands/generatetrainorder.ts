@@ -69,7 +69,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     f.value = f.value
     .replace("{{trainOrder}}", globals.currentTrainOrder)
     .replace("{{date}}", date)
-    .replace("{{to}}", toText)
+    .replace("{{to}}", toText.split(";").join("\n"))
     .replace("{{instructions}}", instructionsText.split(";").join("\n"));
   });
 
@@ -81,7 +81,6 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
   const pingText = pings.map(p => p.toString()).join(" ");
     await interaction.reply({
-    content: pingText || "No pings specified.",
     embeds: [embed],
   });
 
