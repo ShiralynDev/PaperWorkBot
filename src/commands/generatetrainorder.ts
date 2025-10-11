@@ -77,7 +77,8 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     .replace("{{time}}", time)
     .replace("{{dispatcher}}", globals.mainDispatcher);
 
-  const embed = new EmbedBuilder(embedJson);
+  const embed = new EmbedBuilder(embedJson)
+    .setColor(0x0099ff);
 
   const pingText = pings.map(p => p.toString()).join(" ");
     await interaction.reply({

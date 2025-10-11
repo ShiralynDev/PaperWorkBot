@@ -69,7 +69,8 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     .replace("{{dispatcher}}", globals.mainDispatcher)
     .replace("{{userName}}", userName);
 
-  const embed = new EmbedBuilder(embedJson);
+  const embed = new EmbedBuilder(embedJson)
+      .setColor(0xff0000);
 
   if (typeof parseInt(ordernumber) == "number" && trainOrders[parseInt(ordernumber)] && interaction.channel) {
     try {
