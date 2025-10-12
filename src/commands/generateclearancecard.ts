@@ -70,7 +70,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     .replace("{{userName}}", userName);
 
   const embed = new EmbedBuilder(embedJson)
-      .setColor(0xff0000);
+      .setColor(0x00316c);
 
   if (typeof parseInt(ordernumber) == "number" && trainOrders[parseInt(ordernumber)] && interaction.channel) {
     try {
