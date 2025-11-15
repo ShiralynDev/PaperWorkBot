@@ -82,6 +82,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
   const pingText = pings.map(p => p.toString()).join(" ");
     await interaction.reply({
+    content: pingText,
     embeds: [embed],
   });
 
