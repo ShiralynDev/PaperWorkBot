@@ -13,9 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.22.1",
-    "dotenv": "^17.2.2",
-    "pdf-lib": "^1.17.1",
-    "sharp": "^0.34.3"
+    "dotenv": "^17.2.2"
   },
   "devDependencies": {
     "tsup": "^8.5.0",
