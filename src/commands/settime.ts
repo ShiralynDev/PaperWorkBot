@@ -18,11 +18,11 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     return interaction.reply({content: `You don't have permissions to set this`, ephemeral: true});
 
   if (typeof time !== "string")
-    return interaction.reply({content: "Something failed :(", ephemeral: true}); // prob set this as a function so it can be quickly changed, like I had to do and like I will have to do as ephemeral: true is depercated
+    return interaction.reply({content: "Something failed :( [if (typeof time !== \"string\")]", ephemeral: true}); // prob set this as a function so it can be quickly changed, like I had to do and like I will have to do as ephemeral: true is depercated
 
   const timeSplit = time.split(":");
   if (timeSplit.length != 2 || !parseInt(timeSplit[0]) || !parseInt(timeSplit[1]))
-    return interaction.reply({content: "Something failed :(", ephemeral: true});
+    return interaction.reply({content: "Something failed :( [if (timeSplit.length != 2 || !parseInt(timeSplit[0]) || !parseInt(timeSplit[1]))]", ephemeral: true});
 
   globals.gameDateTime.setHours(parseInt(timeSplit[0]));
   globals.gameDateTime.setMinutes(parseInt(timeSplit[1]));
