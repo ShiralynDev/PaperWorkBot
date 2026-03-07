@@ -26,6 +26,8 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   const day = interaction.options.getString("day");
   const member = interaction.member as GuildMember;
 
+  await interaction.deferReply()
+
   if (!member?.roles.cache.has(globals.roleIDForDispatchSettings)) 
     return interaction.reply({content: `You don't have permissions to set this`, ephemeral: true});
 
@@ -37,5 +39,5 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
   globals.gameDateTime.setFullYear(parseInt(year), parseInt(month) - 1, parseInt(day));
 
-  return interaction.reply({content: `Date is now set to: ${globals.gameDateTime.getFullYear()}-${globals.gameDateTime.getMonth() + 1}-${globals.gameDateTime.getDate()}!`});
+  return interaction.editReply({content: `Date is now set to: ${globals.gameDateTime.getFullYear()}-${globals.gameDateTime.getMonth() + 1}-${globals.gameDateTime.getDate()}!`});
 }
