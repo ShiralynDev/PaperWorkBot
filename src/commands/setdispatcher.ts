@@ -16,10 +16,10 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   const member = interaction.member as GuildMember;
 
   if (!member?.roles.cache.has(globals.roleIDForDispatchSettings)) 
-    return interaction.editReply({content: `You don't have permissions to set this`, ephemeral: true});
+    return interaction.reply({content: `You don't have permissions to set this`, ephemeral: true});
 
   if (typeof dispatcher !== "string")
-    return interaction.editReply({content: "Something failed :(", ephemeral: true});
+    return interaction.reply({content: "Something failed :(", ephemeral: true});
 
   globals.mainDispatcher = dispatcher;
 
