@@ -21,12 +21,11 @@ export const data = new SlashCommandBuilder()
       .setRequired(true));
 
 export async function execute(interaction: ChatInputCommandInteraction) {
+  await interaction.deferReply()
   const year = interaction.options.getString("year");
   const month = interaction.options.getString("month");
   const day = interaction.options.getString("day");
   const member = interaction.member as GuildMember;
-
-  await interaction.deferReply()
 
   if (!member?.roles.cache.has(globals.roleIDForDispatchSettings)) 
     return interaction.reply({content: `You don't have permissions to set this`, ephemeral: true});
