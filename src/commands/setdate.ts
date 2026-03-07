@@ -28,13 +28,13 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   const member = interaction.member as GuildMember;
 
   if (!member?.roles.cache.has(globals.roleIDForDispatchSettings)) 
-    return interaction.reply({content: `You don't have permissions to set this`, ephemeral: true});
+    return interaction.editReply({content: `You don't have permissions to set this`, ephemeral: true});
 
   if (typeof year !== "string" || typeof month !== "string" || typeof day !== "string")
-    return interaction.reply({content: "Something failed :(", ephemeral: true}); // prob set this as a function so it can be quickly changed, like I had to do and like I will have to do as ephemeral: true is depercated
+    return interaction.editReply({content: "Something failed :(", ephemeral: true}); // prob set this as a function so it can be quickly changed, like I had to do and like I will have to do as ephemeral: true is depercated
 
   if (!parseInt(year) || !parseInt(month) || !parseInt(day))
-    return interaction.reply({content: "Something failed :(", ephemeral: true});
+    return interaction.editReply({content: "Something failed :(", ephemeral: true});
 
   globals.gameDateTime.setFullYear(parseInt(year), parseInt(month) - 1, parseInt(day));
 

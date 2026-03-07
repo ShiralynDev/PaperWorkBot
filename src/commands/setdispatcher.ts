@@ -11,16 +11,17 @@ export const data = new SlashCommandBuilder()
       .setRequired(true));
 
 export async function execute(interaction: ChatInputCommandInteraction) {
+  await interaction.deferReply()
   const dispatcher = interaction.options.getString("dispatcher");
   const member = interaction.member as GuildMember;
 
   if (!member?.roles.cache.has(globals.roleIDForDispatchSettings)) 
-    return interaction.reply({content: `You don't have permissions to set this`, ephemeral: true});
+    return interaction.editReply({content: `You don't have permissions to set this`, ephemeral: true});
 
   if (typeof dispatcher !== "string")
-    return interaction.reply({content: "Something failed :(", ephemeral: true});
+    return interaction.editReply({content: "Something failed :(", ephemeral: true});
 
   globals.mainDispatcher = dispatcher;
 
-  return interaction.reply({content: `Dispatch is now: ${dispatcher}!`});
+  return interaction.editReply({content: `Dispatch is now: ${dispatcher}!`});
 }
