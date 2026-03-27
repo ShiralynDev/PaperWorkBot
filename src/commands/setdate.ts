@@ -21,7 +21,6 @@ export const data = new SlashCommandBuilder()
       .setRequired(true));
 
 export async function execute(interaction: ChatInputCommandInteraction) {
-  await interaction.deferReply()
   const year = interaction.options.getString("year");
   const month = interaction.options.getString("month");
   const day = interaction.options.getString("day");
@@ -38,5 +37,5 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
   globals.gameDateTime.setFullYear(parseInt(year), parseInt(month) - 1, parseInt(day));
 
-  return interaction.editReply({content: `Date is now set to: ${globals.gameDateTime.getFullYear()}-${globals.gameDateTime.getMonth() + 1}-${globals.gameDateTime.getDate()}!`});
+  return interaction.reply({content: `Date is now set to: ${globals.gameDateTime.getFullYear()}-${globals.gameDateTime.getMonth() + 1}-${globals.gameDateTime.getDate()}!`});
 }

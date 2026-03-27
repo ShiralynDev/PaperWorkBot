@@ -11,7 +11,6 @@ export const data = new SlashCommandBuilder()
       .setRequired(true));
 
 export async function execute(interaction: ChatInputCommandInteraction) {
-  await interaction.deferReply()
   const dispatcher = interaction.options.getString("dispatcher");
   const member = interaction.member as GuildMember;
 
@@ -23,5 +22,5 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
   globals.mainDispatcher = dispatcher;
 
-  return interaction.editReply({content: `Dispatch is now: ${dispatcher}!`});
+  return interaction.reply({content: `Dispatch is now: ${dispatcher}!`});
 }
